@@ -4,8 +4,13 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage[utf8]{inputenc}
-\usepackage[italian]{babel}
+\usepackage{babel}
 \usepackage[margin=2.5cm]{geometry}
+
+
+%notes: respect the correct formatting of the Latex code in order to increase readability.
+% each section should start at the leftmost area of the screen and each subsection should be indented.
+%look for a way to identify spelling mistakes
 
 
 
@@ -21,10 +26,35 @@
 \tableofcontents
 
 \begin{abstract}
-    qui ci va il sommario
-    \end{abstract}
-    \section{Introduction} 
-        \subsection{Purpose}
+    This Requirements Analysis and Specification Document (RASD) is going to takle objectives, requirements (functional and non functional) for the project CodeKataBattles.
+    
+    It will be presented the scope, the functionalities and the domain of such project and we will give a comprehensive overview of the interaction with users and external components and the performance expected from the system.
+
+    This document is going to be a reliable point of reference for developers since it will define clearly the functionalities of the system and it will give precise guidelines during the validation and verification process.
+
+    The profound goal of this document is to give a precise overview of the product to be in order to give the stakeholders a general understanding of usage scenarios and avoiding changes of directions during the design and implementation part of the system development.    
+\end{abstract}
+
+\section{Introduction} 
+    \subsection{Purpose}
+        This system allows students to boost their learning by participating in
+        code challenges called kata battles organised by teachers and independent tutors.\\
+
+        Such challenges will be part of tournaments so that it is possible for students to compete in multiple katas and seeing their position in a leaderbord of all participants.
+        The system allows for the creator of the tournament to define a set of rules regarding the number of participants and the size of the groups of students and it gives the possibility to delegate the creation of the katas and the managing of the tournament also to other teachers.\\
+
+        The system offers a platform integrated with GitHub where teachers can publish the kata and define the test cases that the code provided by the students must pass and assess student's submissions.
+        The students on the other hand, can submit their code and see immediately
+        its performances. The system assigns a score to each submission
+        based on functional and non functional aspects of the code so that
+        students can compare their work with other participants.\\
+        
+        Moreover, the system promotes global participation in kata battles, since it is possible to join battles organised by educators from all around the world.
+        It is worth noticing that, not only certified teachers can create tournaments, but also independent tutors, allowing them to engage their students in productive competitions. 
+        
+            \subsubsection{Goals}
+                The system must satisfy this goals:
+                [G1] 
 
     \section{Overall caracteristics}
         \subsection{Product functions}
@@ -59,4 +89,12 @@
             \subsubsection{A°°°Create Battle}
             \subsubsection{A°°°Create Badge}
                 Write a formula with existing variables
+
+
+
+\section{Effort spent}
+    Antonio Marusic\\
+    section 1: 1h\\
+    section 2: 1h\\
+    
 \end{document}
