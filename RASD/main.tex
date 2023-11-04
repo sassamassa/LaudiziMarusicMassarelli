@@ -6,17 +6,30 @@
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
 \usepackage[margin=2.5cm]{geometry}
+\usepackage{todonotes} %for to do notes
+\usepackage{enumitem} %for customizable enumerations
+
+
+%definition of variables for uniformity of naming
+\newcommand{\admin}{admin }
+\newcommand{\admins}{admins }
+\newcommand{\participant}{participant }
+\newcommand{\participants}{participants }
+\newcommand{\group}{groups }
+\newcommand{\groups}{groups }
 
 
 %notes: respect the correct formatting of the Latex code in order to increase readability.
 % each section should start at the leftmost area of the screen and each subsection should be indented.
-%look for a way to identify spelling mistakes
+%use to do blocks to spot areas that needs further development or examination
+%always refer to the sytem as system, not website or other specific names because this will result in a premature desing choice
 
 
 
-\title{RASD}
+
+\title{RASD\\ CodeKataBattles}
 \author{Federica Laudizi, Antonio Marusic, Sara Massarelli}
-\date{Novembre 2023}
+\date{November 2023}
 
 \begin{document}
 
@@ -24,6 +37,8 @@
 \maketitle
 
 \tableofcontents
+
+\todo{look for a way to identify spelling mistakes}
 
 \begin{abstract}
     This Requirements Analysis and Specification Document (RASD) is going to takle objectives, requirements (functional and non functional) for the project CodeKataBattles.
@@ -54,7 +69,33 @@
         
             \subsubsection{Goals}
                 The system must satisfy this goals:
-                [G1] 
+
+                Actors definitions:
+                \begin {itemize}
+                    \item Admin: admins are the teachers, educators or tutors that created the tournament or were accepted by the creator as collaborators. Admin users have the previlege for that tournament to manage the tournament settings and parameters and to publish new kata battles
+                    \item Participants: are the students that enroll in a tournament. 
+                    \todo{better explain the subdivision in groups, maybe we don't have only the concept of participant but we have the concept of group and participants are the components of the group}
+                \end {itemize}
+
+
+
+                
+                \begin{enumerate}[label=\textbf{G\arabic*}:]
+                    \item Participants can participate in a tournament.
+                    \item Participants can submit their code through GitHub.
+                    \item Participants can view the results of their submission as a score from 0 to 100.
+                    \item Participants can see the scores of other participants and their position in the leaderboard, whether they are in the same tournament or not.
+                    \item Participants can see all tournaments currently running.
+                    \item Admins can invite collaborators to the tournament that will be considered as admins once they accept the invite.
+                    \item Users can request to become admins.
+                    \item Admins can accept user requests to become admins.
+                    \item Admins can accept user requests to participate in a tournament.
+                    \item Admins and collaborators can create kata battles.
+                    \item Admins can change the parameters for tournaments they created (e.g., make the tournament open, set the max number of participants, set the group size, set the duration of each kata battle).
+                    \todo{Better define what the parameters are.}
+                    \item Admins can...
+                \end{enumerate}
+                \todo {to be continued}
 
     \section{Overall caracteristics}
         \subsection{Product functions}
@@ -86,7 +127,20 @@
             \subsubsection{A°°°Run tests}
             \subsubsection{A°°°Assign score automatically}
             \subsubsection{A°°°Consolidation stage: manually evaluate repo}
-            \subsubsection{A°°°Create Battle}
+            \subsubsection{A°°°Create a Kata Battle}
+                The system allows \admins to create a Kata Battle
+                \todo {define a kata battle}. The process involves asking a
+                textual description of the problem to solve by the \groups and a software project with build automation scripts whose structure depends on the programming language of choiche for the kata. This project must contain a set of test cases, otherwise it won't be possible to perform the evaluation of the submissions. 
+                \todo {can katas allow for different programming languages?}.
+                After that the sytem prompts for some configurations parameters for the kata, such as minimum and maximum number of students per group, a registration deadline, a final submission deadline
+                and additional configurations for scoring
+                \todo {pay attention to the fact that scoring criterions are different based on the kata, so are not a property of the tournament}\\
+
+                When the system receives in input the data required it performes some validity checks
+                \todo{what are the necessary validity checks? what can't be validated and so has to be put in the constraints?}.
+                 Later, it will ask for confirmation and the kata will be created.
+                \todo{ Notifications will be sent?}
+                
             \subsubsection{A°°°Create Badge}
                 Write a formula with existing variables
 
@@ -94,7 +148,7 @@
 
 \section{Effort spent}
     Antonio Marusic\\
-    section 1: 1h\\
+    section 1: 2h\\
     section 2: 1h\\
     
 \end{document}
