@@ -13,10 +13,14 @@
 %definition of variables for uniformity of naming
 \newcommand{\admin}{admin }
 \newcommand{\admins}{admins }
+\newcommand{\adminGroup}{admin goup }
+\newcommand{\adminGroups}{admin groups }
 \newcommand{\participant}{participant }
 \newcommand{\participants}{participants }
 \newcommand{\group}{groups }
 \newcommand{\groups}{groups }
+\newcommand{\user}{user }
+\newcommand{\users}{users }
 
 
 %notes: respect the correct formatting of the Latex code in order to increase readability.
@@ -120,13 +124,61 @@
                 \paragraph*{group member}
             \subsubsection{Decline invite}
             \subsubsection{Create repository}
+            \subsubsection{Participate in a tournament}
+            \subsubsection{Participate in a battle}
             \subsubsection{A°°°Send notification}
+                The system has the possiblity of sending notification to \users. There are multiple kinds of notifications that serves the purpose of updating \users on the status of the tournanaments they are involved in and updating them on incoming invitations in tournaments, group or invitations as collaborators in the \adminGroup.
+            
+            
+                \paragraph{Tournament created}
+                    \todo{Since we espect plenty of tournament to be created daily maybe it is a good idea to give the possibility to disable or filter this kind of notifications. It is sensible also to give \admins the possibility of creating closed tournaments, accessible only through invitation. Are this closed tournaments visible in the list of tournaments?}
+
+                    When a new tournament is created, all students subscribed to the CKB platform are notified.
+
+                \paragraph{Battle created}
+                    When someone in the \adminGroup of a tournament creates a kata battle, every \participant of that tournament is notified.
                 \paragraph*{Send link}
+                    When the registration deadline expires and the platform creates the GitHub repository the system sends a notification containing the link to all \participants of that tournament.
                 \paragraph*{End of battle}
+                    Once the consolidation stage finishes, all students participating in the battle are notified with the updated ranks.
+                
+                \paragraph{Tournament closure}
+                    \todo{when does a tournament finishes?}
+                    when a tournament finishes all the \participants are notified
+
                 \paragraph*{Invite}
+                    \todo{this section isn't specifically required but it makes sense considering the fact that one can invite team members so you have to someway understand that you have been invited}
+                    The invitations can be received in different cases
+                    \begin {itemize}
+                        \item an \user can be invited in a \group participating a tournament
+                        \item an \user can be invited in the \adminGroup of a tournament
+                        \item an user can be invited in a tournament
+                            \todo {is the group invited in the tournament of the single \user?}
+                    \end {itemize}
+                    
             \subsubsection{A°°°Run tests}
+                \todo {probably this section doesn't belong here}
+                Each git push performed on the challenge reposistory by a \group participating in the kata battle triggers the platform that builds the project and runs the tests.
+                \todo{where and how are the test runned?}
+
             \subsubsection{A°°°Assign score automatically}
+                When the test of a submission has runned a score is assigned by the system
+
+                \todo{where should this section go?}
+                Scoring method (copy and paste of the instructions)
+                The score is a natural number between 0 and 100 determined by considering some mandatory factors evaluated in a fully automated way, and optional factors evaluated manually by educators. Mandatory automated evaluation includes:
+                • functional aspects, measured in terms of number of test cases that pass out of all test cases (the
+                higher the better);
+                • timeliness, measured in terms of time passed between the registration deadline and the last
+                commit (the lower the better);
+                • quality level of the sources, extracted through static analysis tools that consider multiple aspects
+                such as security, reliability, and maintainability (the higher the better). Aspects are selected by the
+                educator at battle creation time. Optional manual evaluation includes:
+                • personal score assigned by the educator, who checks and evaluates the work done by students (the
+                higher the better).
+                The CKB platform automatically updates the battle score of a team as soon as new push actions on GitHub are performed
             \subsubsection{A°°°Consolidation stage: manually evaluate repo}
+                When the submission deadline expires, the kata battle enters in a consolidation state where the \admins can review the repository and perform further evaluations. The scores can be modified manually. When this stage finishes notifications are sent.
             \subsubsection{A°°°Create a Kata Battle}
                 The system allows \admins to create a Kata Battle
                 \todo {define a kata battle}. The process involves asking a
@@ -142,13 +194,41 @@
                 \todo{ Notifications will be sent?}
                 
             \subsubsection{A°°°Create Badge}
-                Write a formula with existing variables
+                The system allow \admins of a tournament to set badges. In order to create a new badge the admin has to write a formula that involves variables provided by the system. Then he/she/they/otherPronouns can specify for how long is the badge obtainable. If the badges is of type boolean it has to specify how many badges are available. In this phase some validity checks are performed, for example if the formula is always false is rejected, or if the time is before now or if it is after the end of the tournament is rejected
+                \todo{is there an end time for the tournament?}
+                
+                \todo {explain what variables are} 
+                \todo{explain what badges are}
 
+                \begin{itemize}
+                    \item Top kind badges (only one badges, the formula returns the best \participant /group)
+                    \item Boolean kind badges (are given if a condition is satisfied)
+                \end {itemize}
+
+            
+                • Title: tournament participant
+                %o Rules: { tot_attended_battles > 0 }
+                • Title: top committer
+                %o Rules: { tot_commits_student == max_tot_commits }
+                %Where tot_attended_battles,tot_commits_studentandmax_tot_commitsare pre-defined variables that represent, respectively, the total number of battles the student has been involved in, the number of commits carried out by the student and the maximum total number of commits considering all students.
+
+                \todo {educators can create new badges and define new rules as well as new variables associated with them (it is written in the instructions)}
+
+                Badges can be visualized by all users. In particular, both students and educators can see collected badges when they visualize the profile of a student.
+            
+            \subsubsection{Evaluate Badges}
+                \todo {probably this section doesn't belong here}
+                \todo{how often are the badges checked? every commit? can the system identify when is sensible to check a badge based on the kind of badge?}
+
+
+    \subsection{Assumptions, dependencies and constraints}
+        The \groups correctly create an automated workflow on GitHub.
+        \todo {how does the system reacts if this doesn't happens? can the system detect such mistakes?}
 
 
 \section{Effort spent}
     Antonio Marusic\\
     section 1: 2h\\
-    section 2: 1h\\
+    section 2: 2:30h\\
     
 \end{document}
